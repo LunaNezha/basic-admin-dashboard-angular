@@ -1,0 +1,99 @@
+<div id="researchers">
+  <div class="form flex flex-column">
+
+    <header class="flex">
+
+      <!-- check all -->
+      <p-checkbox 
+        name="researcherName" 
+        value="val1" 
+        [(ngModel)]="isSelectedResearcher"
+        (onChange)="checkUncheckAllResearcher()"
+        [binary]="true">
+      </p-checkbox>
+
+      <!-- search -->
+      <div class="search flex flex-1" *ngIf="!isShowAddResearchersForm">
+        <input 
+          pInputText
+          type="text" 
+          [placeholder]="'inputs.short_search' | translate"
+          class="flex-1">
+
+          <button 
+            pButton
+            pRipple 
+            type="button"
+            class="p-button-text py-2 px-3 absolute top-0 bottom-0 left-0 right-auto"
+            [label]="'buttons.add' | translate"
+            icon="fi fi-rr-add document"
+            (click)="isShowAddResearchersForm = true">
+          </button>
+      </div>
+
+      <!-- add research group -->
+      <div class="add_research_group flex flex-1" *ngIf="isShowAddResearchersForm">
+        <input 
+          pInputText
+          type="text" 
+          [placeholder]="'inputs.research_group_name' | translate" 
+          class="flex-1">
+
+          <button 
+            pButton
+            pRipple 
+            type="button"
+            class="p-button-success p-button-text py-2 px-3 absolute top-0 bottom-0 left-0 right-auto"
+            [label]="'buttons.submit' | translate"
+            icon="fi fi-rr-check"
+            (click)="isShowAddResearchersForm = false">
+          </button>
+      </div>
+
+    </header>
+
+    <main>
+      <ul>
+        <li class="flex align-items-center" *ngFor="let item of researcherChecklists; trackBy: trackByFunction;">
+          <p-checkbox 
+            name="researcherName" 
+            [inputId]="item.id"
+            [value]="item.id" 
+            [(ngModel)]="item.isSelected"
+            (onChange)="isAllResearcherSelected()"
+            [binary]="true">
+          </p-checkbox>
+
+          <div [id]="item.id" class="content flex flex-1 flex-column">
+            <h5>{{ item.name }}</h5>
+            <span class="flex justify-content-between align-items-center">
+              {{ 'titles.active_plans' | translate }}
+              <b>{{ item.activePlan }}</b>
+            </span>
+          </div>
+        </li>
+      </ul>
+    </main>
+  
+  </div>
+  
+  <div class="footer w-full inline-flex justify-content-between">
+    <button 
+      pButton 
+      pRipple 
+      type="button" 
+      class="p-button-danger p-button-text p-button-rounded"
+      [label]="'buttons.back' | translate" 
+      (click)="closeOperation()">
+    </button>
+  
+    <button 
+      pButton 
+      pRipple 
+      type="button" 
+      class="p-button-success p-button-rounded"
+      [label]="'buttons.send' | translate"
+      (click)="submitOperation()">
+    </button>
+  </div>
+</div>

@@ -1,0 +1,40 @@
+<div class="layout-topbar" [lang]="translate.currentLang" *ngIf="isShowTopbar">
+  <a class="layout-topbar-logo" [routerLink]="['/']">
+    <img src="assets/images/{{appService.config.dark ? 'logo-white' : 'logo-dark'}}.svg" alt="mahand logo">
+    <span class="font-bold">{{ 'titles.brand_name' | translate }}</span>
+  </a>
+
+  <a class="p-link layout-menu-button layout-topbar-button" href="#" (click)="appService.toggleMenu($event)">
+    <i class="fi fi-rr-menu-burger"></i>
+  </a>
+
+  <a class="p-link layout-topbar-menu-button layout-topbar-button" href="#" (click)="appService.toggleTopMenu($event)">
+    <i class="fi fi-rr-menu-dots-vertical"></i>
+  </a>
+
+  <div class="layout-topbar-menu" [ngClass]="{'layout-topbar-menu-mobile-active':appService.topMenuActive}">
+
+    <a class="language_item" *ngIf="currentLang" (click)="changeLanguage()">
+      <img [src]="currentLang.image" [alt]="currentLang.name">
+      <strong>{{ currentLang.name }}</strong>
+    </a>
+
+    <a 
+      id="layout-config-button" 
+      (click)="onConfigButtonClick($event)" 
+      class="p-link layout-topbar-button">
+      <i class="fi fi-rr-settings"></i>
+      <span>Settings</span>
+    </a>
+    
+    <a href="#" class="p-link layout-topbar-button">
+      <i class="fi fi-rr-user"></i>
+      <span>Profile</span>
+    </a>
+    
+    <a href="#" class="p-link layout-topbar-button">
+      <i class="fi fi-rr-power"></i>
+      <span>Sign out</span>
+    </a>
+  </div>
+</div>

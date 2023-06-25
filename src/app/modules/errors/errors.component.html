@@ -1,0 +1,32 @@
+<div [lang]="translate.currentLang" class="p-3 sm:p-4 md:p-5 lg:p-6 xl:p-6 surface-0 flex align-items-center justify-content-center min-h-screen min-w-screen overflow-hidden">
+  <div class="grid justify-content-center p-2 lg:p-0" style="min-width:80%;">
+    <div class="col-12 xl:col-6" style="border-radius:56px; padding:0.3rem; background: linear-gradient(180deg, rgba(233, 30, 99, 0.4) 10%, rgba(33, 150, 243, 0) 30%);">
+      <div class="h-full w-full m-0 py-7 px-4" style="border-radius:53px; background: linear-gradient(180deg, var(--surface-50) 38.9%, var(--surface-0));">
+        <div class="grid flex flex-column align-items-center">
+         
+          <div class="flex justify-content-center align-items-center bg-pink-500 border-circle" style="height:3.2rem; width:3.2rem;">
+            <i class="fi fi-rr-exclamation text-2xl text-white"></i>
+          </div>
+
+          <h1 class="text-900 font-bold text-4xl lg:text-5xl mb-2">{{ 'titles.error_occured' | translate }}</h1>
+          <span class="text-600 text-center">{{ 'messages.resource_not_available' | translate }}</span>
+          <img src="assets/images/asset-error.svg" alt="Error" class="mt-5" width="80%">
+          
+          <div class="col-12 mt-5 text-center flex justify-content-center align-items-center">
+            <button 
+              pButton
+              pRipple 
+              type="button"
+              class="p-button-text"
+              [label]="'buttons.back_home' | translate"
+              [routerLink]="['/']"
+              [iconPos]="translate.currentLang == 'fa' ? 'left' : 'right'"
+              [icon]="translate.currentLang == 'fa' ? 'fi fi-rr-arrow-small-left' : 'fi fi-rr-arrow-small-right'">
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

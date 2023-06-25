@@ -1,0 +1,163 @@
+<section id="projects">
+  <header class="w-full inline-flex justify-content-between align-items-center">
+    <h2>{{ 'titles.projects' | translate }}</h2>
+
+    <button 
+      pButton
+      pRipple 
+      type="button"
+      [label]="'buttons.add_project' | translate"
+      [routerLink]="['/projects/add']"
+      icon="fi fi-rr-add document">
+    </button>
+  </header>
+  
+  <main class="my-5">
+    
+    <p-contextMenu #cm [model]="contentMenuItems"></p-contextMenu>
+
+    <p-table 
+      #dt 
+      [value]="projects" 
+      [(selection)]="selectedProjects" 
+      selectionMode="multiple"
+      dataKey="id" 
+      styleClass="p-datatable-gridlines p-datatable-striped" 
+      [rowHover]="true"
+      [(contextMenuSelection)]="selectedProject" 
+      [contextMenu]="cm"
+      [rows]="10" 
+      [showCurrentPageReport]="true" 
+      [rowsPerPageOptions]="[10, 25, 50, 100]" 
+      [loading]="loading" 
+      responsiveLayout="scroll"
+      [paginator]="true" 
+      [lazy]="true"
+      (onLazyLoad)="loadProjects($event)"
+      [totalRecords]="totalRecords"
+      currentPageReportTemplate="{{ 'global.show' | translate}} ({first} {{ 'global.to' | translate }} {last}) {{ 'global.of' | translate }} {totalRecords}"
+      [filterDelay]="0" 
+      [globalFilterFields]="['title','employer', 'researchGroups', 'executor']">
+
+      <ng-template pTemplate="caption">
+        <div class="table-header w-full p-1">
+          <input 
+            pInputText 
+            type="text" 
+            class="w-full"
+            (input)="dt.filterGlobal($event.target.value, 'contains')" 
+            [placeholder]="'inputs.long_search' | translate">
+
+          <div class="actions">
+            <button type="button" pButton pRipple icon="pi pi-file-excel" (click)="exportExcel()" class="p-button-success"  pTooltip="Excel" tooltipPosition="top"></button>
+            <button type="button" pButton pRipple icon="pi pi-file-pdf" (click)="exportPdf()" class="p-button-warning" pTooltip="PDF" tooltipPosition="top"></button>
+          </div>
+        </div>
+      </ng-template>
+
+      <ng-template pTemplate="header" let-columns>
+        <tr>
+          <th style="width: 3rem">
+            <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+          </th>
+
+          <th style="width: 3rem">
+            <div class="head">{{ 'global.row' | translate }}</div>
+          </th>
+          
+          <th pSortableColumn="title">
+            <div class="flex justify-content-between align-items-center">
+              {{ 'titles.title' | translate }}
+              <p-sortIcon field="title"></p-sortIcon>
+            </div>
+          </th>
+
+          <th pSortableColumn="employer">
+            <div class="flex justify-content-between align-items-center">
+              {{ 'titles.employer' | translate }}
+              <p-sortIcon field="employer"></p-sortIcon>
+            </div>
+          </th>
+
+          <th pSortableColumn="researchGroups">
+            <div class="flex justify-content-between align-items-center">
+              {{ 'titles.research_groups' | translate }}
+              <p-sortIcon field="researchGroups"></p-sortIcon>
+            </div>
+          </th>
+
+          <th pSortableColumn="executor">
+            <div class="flex justify-content-between align-items-center">
+              {{ 'titles.executor' | translate }}
+              <p-sortIcon field="executor"></p-sortIcon>
+            </div>
+          </th>
+          
+          <th pSortableColumn="progressPercentage">
+            <div class="flex justify-content-between align-items-center">
+              {{ 'titles.progress_percentage' | translate }}
+              <p-sortIcon field="progressPercentage"></p-sortIcon>
+            </div>
+          </th>
+        </tr>
+      </ng-template>
+
+      <ng-template pTemplate="body" let-project let-rowsIndex="rowIndex">
+        <tr class="p-selectable-row" [pContextMenuRow]="product">
+          <td>
+            <p-tableCheckbox [value]="project"></p-tableCheckbox>
+          </td>
+
+          <td>
+            <span class="p-column-title">{{ 'global.row' | translate }}</span>
+            <span>{{ rowsIndex + 1 }}</span>
+          </td>
+
+          <td>
+            <span class="p-column-title">{{ 'titles.title' | translate }}</span>
+            <span>{{ translate.currentLang == 'fa' ? project.faTitle : project.enTitle }}</span>
+          </td>
+
+          <td>
+            <span class="p-column-title">{{ 'titles.employer' | translate }}</span>
+            <span>{{ project.employer }}</span>
+          </td>
+
+          <td>
+            <span class="p-column-title">{{ 'titles.research_groups' | translate }}</span>
+            <span>{{ project.researchGroups }}</span>
+          </td>
+
+          <td>
+            <span class="p-column-title">{{ 'titles.executor' | translate }}</span>
+            <span>{{ project.executor }}</span>
+          </td>
+
+          <td>
+            <span class="p-column-title">{{ 'titles.progress_percentage' | translate }}</span>
+            <span class="inline-flex align-items-center">
+              <p-knob 
+                [strokeWidth]="10"
+                [readonly]="true"
+                [size]="30"
+                [showValue]="false"
+                [(ngModel)]="project.progressPercentage"
+                styleClass="mx-2">
+              </p-knob>
+
+              {{ project.progressPercentage }} {{ 'global.percentage' | translate }}
+            </span>
+          </td>
+        </tr>
+      </ng-template>
+
+      <ng-template pTemplate="emptymessage">
+        <tr class="empty_message">
+          <td colspan="8">{{ 'messages.no_projects' | translate }}</td>
+        </tr>
+      </ng-template>
+
+    </p-table>
+
+  </main>
+</section>

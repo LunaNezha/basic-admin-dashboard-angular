@@ -1,0 +1,54 @@
+<p-dialog
+  [lang]="translate.currentLang"
+  [header]="getDialogTitles() | translate"
+  [(visible)]="displayOperationDialog"
+  [breakpoints]="{'960px': '75vw'}" 
+  [style]="{width: '50vw'}"
+  [draggable]="false" 
+  [resizable]="false"
+	[dismissableMask]="true"
+	[rtl]="translate.currentLang == 'fa' ? 'rtl' : 'ltr'"
+	[modal]="true"
+	position="center"
+  (onHide)="closeOperationDialog()">
+
+  <!-- research groups -->
+  <app-research-groups
+    *ngIf="operationType == operationTypes.ResearchGroups"
+    (submittedOperation)="submitOperation()"
+    (closedOperation)="closeOperationDialog()">
+  </app-research-groups>
+
+  <!-- researchers -->
+  <app-researchers
+    *ngIf="operationType == operationTypes.Researchers"
+    (submittedOperation)="submitOperation()"
+    (closedOperation)="closeOperationDialog()">
+  </app-researchers>
+
+  <!-- correction description -->
+  <app-correction-description
+    *ngIf="operationType == operationTypes.CorrectionDescription">
+  </app-correction-description>
+
+  <!-- plan approval -->
+  <app-plan-approval
+    *ngIf="operationType == operationTypes.PlanApproval">
+  </app-plan-approval>
+
+  <!-- research council -->
+  <app-research-council
+    *ngIf="operationType == operationTypes.ResearchCouncil">
+  </app-research-council>
+
+  <!-- review suggestion -->
+  <app-review-suggestion
+    *ngIf="operationType == operationTypes.ReviewSuggestion">
+  </app-review-suggestion>
+
+  <!-- send suggestion -->
+  <app-send-suggestion
+    *ngIf="operationType == operationTypes.SendSuggestion">
+  </app-send-suggestion>
+
+</p-dialog>

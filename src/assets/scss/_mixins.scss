@@ -1,0 +1,58 @@
+@mixin focused() {
+  outline: 0 none;
+  outline-offset: 0;
+  transition: box-shadow 0.2s;
+  box-shadow: var(--focus-ring);
+}
+
+@mixin focused-inset() {
+  outline: 0 none;
+  outline-offset: 0;
+  transition: box-shadow 0.2s;
+  box-shadow: inset var(--focus-ring);
+}
+
+// ================== media quiery ==================
+@mixin media-query($breakpoint) {
+  @if $breakpoint==smallmobile {
+    @media screen and (max-width: 319px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint==mobile {
+    @media screen and (min-width: 320px) and (max-width: 480px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint==tablet {
+    @media screen and (min-width: 481px) and (max-width: 768px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint==laptop {
+    @media screen and (min-width: 769px) and (max-width: 1024px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint==desktop {
+    @media screen and (min-width: 1025px) and (max-width: 1200px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint==desktopUp {
+    @media screen and (min-width: 1200px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint==desktopDown {
+    @media screen and (max-width: 1200px) {
+      @content;
+    }
+  }
+}

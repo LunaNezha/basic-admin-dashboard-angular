@@ -1,0 +1,56 @@
+@use '../../../../../assets/scss/variables' as v;
+
+#research_groups {
+  display: grid;
+  gap: 2rem;
+
+  .form {
+    gap: 1.5rem;
+
+    header {
+      background-color: var(--surface-overlay);
+      border-radius: v.$borderRadius;
+      box-shadow: v.$boxShadow;
+
+      p-checkbox {
+        padding: 1rem;
+        border-left: 1px solid var(--surface-100);
+      }
+
+      .search,
+      .add_research_group {
+        gap: 1rem;
+        position: relative;
+
+        input {
+          box-shadow: none;
+        }
+      }
+    }
+
+    main {
+      ul {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.3rem;
+
+        li {
+          background-color: var(--surface-overlay);
+          box-shadow: v.$boxShadow;
+          border-radius: v.$borderRadius;
+          padding: 1rem;
+          gap: 1rem;
+
+          .content {
+            font-family: iranyekan;
+            gap: 5px;
+
+            span {
+              font-size: 85%;
+            }
+          }
+        }
+      }
+    }
+  }
+}

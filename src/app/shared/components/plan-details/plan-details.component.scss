@@ -1,0 +1,100 @@
+@use '../../../../assets/scss/variables' as v;
+
+::ng-deep {
+  p-panel {
+    &[toggler="header"] {
+      .p-panel-icons {
+        display: none;
+      }
+    }
+
+    .p-panel-header {
+      padding: 1rem !important;
+    }
+  }
+}
+
+#plan_details {
+  display: grid;
+  gap: 1rem;
+  align-content: flex-start;
+  align-items: flex-start;
+
+  .information {
+    background-color: var(--surface-overlay);
+    box-shadow: v.$boxShadow;
+    border-radius: v.$borderRadius;
+    gap: 1rem;
+
+    .content {
+      gap: 8px;
+
+      span {
+        opacity: 70%;
+        font-size: 90%;
+      }
+    }
+  }
+
+  main {
+    display: grid;
+    gap: 1rem;
+    flex: 1;
+
+    .description {
+      border-radius: v.$borderRadius;
+      box-shadow: v.$boxShadow;
+      gap: 1rem;
+
+      .header {
+        gap: 1rem;
+      }
+    }
+  }
+
+  aside {
+    display: grid;
+    gap: 1rem;
+    flex: .5;
+
+    .file_items {
+      li {
+        gap: 1rem;
+
+        &:not(:last-child) {
+          padding-bottom: 1.5rem;
+          border-bottom: 1px solid #ececec;
+        }
+
+        &:not(:first-child) {
+          padding-top: 1.5rem;
+        }
+
+        .name {
+          gap: 10px;
+        }
+
+        button {
+          margin-right: auto;
+        }
+      }
+    }
+
+    #status {
+      .content {
+        span {
+          font-family: iranyekan;
+        }
+      }
+    }
+
+    .actions {
+      gap: 1rem;
+      background-color: var(--surface-overlay);
+      box-shadow: v.$boxShadow;
+      border-radius: v.$borderRadius;
+      padding: 1.3rem;
+    }
+
+  }
+}

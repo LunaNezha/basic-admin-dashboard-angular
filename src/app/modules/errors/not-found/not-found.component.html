@@ -1,0 +1,53 @@
+<div [lang]="translate.currentLang" class="p-3 sm:p-4 md:p-5 lg:p-6 xl:p-6 surface-0 flex align-items-center justify-content-center min-h-screen min-w-screen overflow-hidden">
+  <div class="grid justify-content-center p-2 lg:p-0" style="min-width:80%">
+    <div class="col-12 xl:col-6" style="border-radius:56px; padding:0.3rem; background: linear-gradient(180deg, rgba(33, 150, 243, 0.4) 10%, rgba(33, 150, 243, 0) 30%);">
+      <div class="flex justify-content-center h-full w-full m-0 py-7 px-4" style="border-radius:53px; background: linear-gradient(180deg, var(--surface-50) 38.9%, var(--surface-0));">
+        <div class="grid flex-column align-items-center">
+
+          <span class="text-blue-500 font-bold text-3xl">404</span>
+          <h1 class="text-900 font-bold text-3xl lg:text-5xl mb-2">{{ 'messages.sorry' | translate }}</h1>
+          <span class="text-600 text-center">{{ 'messages.not_found' | translate }}</span>
+
+          <div class="inline-flex pt-5">
+            <a [routerLink]="['/']" class="flex flex-column justify-content-center align-items-center border-300 border-left-1 pl-4">
+              <div class="flex justify-content-center align-items-center bg-indigo-400 border-round" style="height:3.5rem; width:3.5rem;">
+                <i class="fi fi-rr-unlock text-50 text-2xl"></i>
+              </div>
+
+              <p class="text-900 lg:text-xl font-medium mb-0 mt-2">صفحه 1</p>
+            </a>
+
+            <a [routerLink]="['/']" class="flex flex-column justify-content-center align-items-center border-300 border-left-1 px-4">
+              <div class="flex justify-content-center align-items-center bg-indigo-400 border-round" style="height:3.5rem; width:3.5rem;">
+                <i class="fi fi-rr-unlock text-50 text-2xl"></i>
+              </div>
+
+              <p class="text-900 lg:text-xl font-medium mb-0 mt-2">صفحه 2</p>
+            </a>
+
+            <a [routerLink]="['/']" class="flex flex-column justify-content-center align-items-center pr-4">
+              <div class="flex justify-content-center align-items-center bg-indigo-400 border-round" style="height:3.5rem; width:3.5rem;">
+                <i class="fi fi-rr-unlock text-50 text-2xl"></i>
+              </div>
+
+              <p class="text-900 lg:text-xl font-medium mb-0 mt-2">صفحه 2</p>
+            </a>
+          </div>
+
+          <div class="col-12 mt-5 text-center flex justify-content-center align-items-center">
+            <button 
+              pButton
+              pRipple 
+              type="button"
+              class="p-button-text"
+              [label]="'buttons.back_home' | translate"
+              [routerLink]="['/']"
+              [iconPos]="translate.currentLang == 'fa' ? 'left' : 'right'"
+              [icon]="translate.currentLang == 'fa' ? 'fi fi-rr-arrow-small-left' : 'fi fi-rr-arrow-small-right'">
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

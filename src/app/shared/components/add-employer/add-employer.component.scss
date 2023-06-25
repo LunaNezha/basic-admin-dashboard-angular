@@ -1,0 +1,51 @@
+@use '../../../../assets/scss/variables' as v;
+
+::ng-deep {
+  .p-dialog {
+    .p-dialog-content {
+      position: relative;
+    }
+
+    .p-dialog-footer {
+      border-top: 1px solid var(--surface-100);
+      padding: 1rem 1.5rem;
+      background-color: var(--surface-overlay);
+    }
+  }
+}
+
+#add_employer {
+  .form {
+    .connectors {
+      background-color: var(--surface-overlay);
+      border-radius: v.$borderRadius 0 0 v.$borderRadius;
+      box-shadow: v.$boxShadow;
+      overflow-y: scroll;
+      position: absolute;
+      inset: 0;
+
+      .connector_lists {
+        display: grid;
+        gap: 1rem;
+
+        li {
+          display: grid;
+          grid-template-columns: auto 1fr;
+          gap: 1rem;
+          align-items: center;
+
+          &:not(:last-child) {
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 5%);
+          }
+
+          .content {
+            strong {
+              font-family: iranyekan;
+            }
+          }
+        }
+      }
+    }
+  }
+}

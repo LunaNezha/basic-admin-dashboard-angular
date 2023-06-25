@@ -1,0 +1,221 @@
+@use "sass:map";
+@use 'mixins' as m;
+
+$headline1: (
+  font-family: unquote("Iranyekan"),
+  font-size: 3rem
+);
+$headline2: (
+  font-family: unquote("Iranyekan"),
+  font-size: 2rem
+);
+$headline3: (
+  font-family: unquote("Iranyekan"),
+  font-size: 1.2rem
+);
+$headline4: (
+  font-family: unquote("Iranyekan"),
+  font-size: 1rem
+);
+$headline5: (
+  font-family: unquote("Iranyekan"),
+  font-size: .9rem
+);
+$headline6: (
+  font-family: unquote("Iranyekan"),
+  font-size: .8rem
+);
+$body: (
+  font-family: unquote("Iranyekan"),
+  font-size: 1rem
+);
+$button: (
+  font-family: unquote("Iranyekan"),
+  font-size: 0.9rem
+);
+$overline: (
+  font-family: unquote("Iranyekan"),
+  font-size: 0.88rem
+);
+$caption: (
+  font-family: unquote("Iranyekan"),
+  font-size: 1.1rem
+);
+
+h1 {
+  font-size: map.get($headline1, "font-size");
+  font-family: map.get($headline1, "font-family");
+  font-weight: 800;
+
+  @include m.media-query(smallmobile) {
+    font-size: 1.3rem;
+  }
+
+  @include m.media-query(mobile) {
+    font-size: 1.3rem;
+  }
+
+  @include m.media-query(tablet) {
+    font-size: 1.6rem;
+  }
+
+  @include m.media-query(laptop) {
+    font-size: 2rem;
+  }
+
+  @include m.media-query(desktop) {
+    font-size: 2.3rem;
+  }
+}
+
+h2 {
+  font-size: map.get($headline2, "font-size");
+  font-family: map.get($headline2, "font-family");
+  font-weight: 800;
+
+  @include m.media-query(smallmobile) {
+    font-size: 1rem;
+  }
+
+  @include m.media-query(mobile) {
+    font-size: 1rem;
+  }
+
+  @include m.media-query(tablet) {
+    font-size: 1.3rem;
+  }
+
+  @include m.media-query(laptop) {
+    font-size: 1.5rem;
+  }
+
+  @include m.media-query(desktop) {
+    font-size: 1.5rem;
+  }
+}
+
+h3 {
+  font-size: map.get($headline3, "font-size");
+  font-family: map.get($headline3, "font-family");
+  font-weight: 800;
+
+  @include m.media-query(smallmobile) {
+    font-size: 1rem;
+  }
+
+  @include m.media-query(mobile) {
+    font-size: 1rem;
+  }
+
+  @include m.media-query(tablet) {
+    font-size: 1.05rem;
+  }
+
+  @include m.media-query(laptop) {
+    font-size: 1.011rem;
+  }
+}
+
+h4 {
+  font-size: map.get($headline4, "font-size");
+  font-family: map.get($headline4, "font-family");
+  font-weight: 800;
+}
+
+h5 {
+  font-size: map.get($headline5, "font-size");
+  font-family: map.get($headline5, "font-family");
+  font-weight: 800;
+}
+
+h6 {
+  font-size: map.get($headline6, "font-size");
+  font-family: map.get($headline6, "font-family");
+  font-weight: 800;
+}
+
+.text {
+  font-size: map.get($body, "font-size");
+  font-family: map.get($body, "font-family");
+  opacity: 70%;
+  line-height: 2.3;
+  font-weight: 400;
+  text-align: justify;
+  margin: 0;
+
+  @include m.media-query(smallmobile) {
+    font-size: 90%;
+    line-height: 2.5;
+  }
+
+  @include m.media-query(mobile) {
+    font-size: 90%;
+    line-height: 2.5;
+  }
+
+  @include m.media-query(tablet) {
+    font-size: 95%;
+    line-height: 2.5;
+  }
+
+  @include m.media-query(laptop) {
+    font-size: 95%;
+  }
+}
+
+.caption {
+  font-size: map.get($caption, "font-size");
+  font-family: map.get($caption, "font-family");
+  opacity: 70%;
+  line-height: 2.3;
+  font-weight: 400;
+  text-align: justify;
+  margin: 0;
+
+  @include m.media-query(smallmobile) {
+    font-size: 90%;
+    line-height: 2.5;
+  }
+
+  @include m.media-query(mobile) {
+    font-size: 90%;
+    line-height: 2.5;
+  }
+
+  @include m.media-query(tablet) {
+    font-size: 100%;
+    line-height: 2.5;
+  }
+
+  @include m.media-query(laptop) {
+    font-size: 105%;
+  }
+
+  @include m.media-query(desktop) {
+    font-size: 105%;
+  }
+}
+
+.overline {
+  font-size: map.get($overline, "font-size");
+  font-family: map.get($overline, "font-family");
+  font-weight: 500;
+  opacity: 70%;
+  text-transform: uppercase;
+  word-spacing: 8px;
+  letter-spacing: 3px;
+
+  @include m.media-query(smallmobile) {
+    font-size: 90%;
+  }
+
+  @include m.media-query(mobile) {
+    font-size: 90%;
+  }
+}
+
+.button {
+  font-size: map.get($button, "font-size") !important;
+  font-family: map.get($button, "font-family") !important;
+  font-weight: 500 !important;
+}

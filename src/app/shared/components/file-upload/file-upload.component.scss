@@ -1,0 +1,96 @@
+@use '../../../../assets/scss/variables' as v;
+
+::ng-deep {
+  p-fileupload {
+    .p-fileupload {
+      border-radius: v.$borderRadius;
+      box-shadow: v.$boxShadow;
+
+      .p-fileupload-buttonbar {
+        display: flex;
+        flex-flow: row wrap;
+        gap: 1rem;
+        justify-content: flex-start;
+        justify-items: flex-start;
+        border: 0;
+        background-color: var(--surface-overlay);
+        border-radius: v.$borderRadius v.$borderRadius 0 0;
+
+        .p-fileupload-choose {
+          margin: 0 !important;
+          display: grid;
+          grid-auto-flow: column;
+          gap: 10px;
+
+          .p-button-icon {
+            margin: 0 !important;
+          }
+
+          span.p-button-label {
+            font-family: 'iranyekan';
+          }
+        }
+
+        p-button {
+          &:last-child {
+            margin-right: auto;
+
+            button {
+              background-color: transparent;
+              border: transparent;
+              color: #E24C4C;
+            }
+          }
+
+          .p-button {
+            margin: 0 !important;
+          }
+        }
+      }
+
+      .p-fileupload-content {
+        border-right: 0;
+        border-bottom: 0;
+        border-left: 0;
+        border-radius: 0 0 v.$borderRadius v.$borderRadius;
+
+        .p-fileupload-files {
+          .p-fileupload-row {
+            >div:last-child {
+              button {
+                margin-right: auto;
+                border-radius: 29px;
+                background-color: #EF4444;
+                border-color: #EF4444;
+                width: auto;
+                height: auto;
+                padding: 4px 7px;
+              }
+            }
+          }
+        }
+
+        .placeholder {
+          display: grid;
+          align-items: center;
+          gap: 1rem;
+          padding: 2rem;
+          opacity: 45%;
+          justify-content: center;
+          justify-items: center;
+
+          i {
+            font-size: 3rem;
+          }
+
+          p {
+            margin: 0;
+            font-family: 'iranyekan';
+            font-weight: 700;
+            font-size: 1.2rem;
+          }
+        }
+      }
+    }
+  }
+}

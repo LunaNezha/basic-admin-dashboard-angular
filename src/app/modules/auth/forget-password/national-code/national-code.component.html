@@ -1,0 +1,68 @@
+<div class="stepsdemo-content" [lang]="translate.currentLang">
+  <p-card>
+
+    <ng-template pTemplate="content">
+      <form (ngSubmit)="nextPage()" [formGroup]="usernameForm">
+
+        <!-- username -->
+        <div class="field mb-0 col-12">
+          <label 
+            for="username" 
+            class="block text-900 text-base font-medium mb-2">
+            {{ 'labels.username' | translate }}
+          </label>
+
+          <span class="p-input-icon-left w-full">
+            <input 
+              pInputText 
+              required 
+              id="username"
+              type="text" 
+              [placeholder]="'inputs.username' | translate" 
+              [ngModel]="informationInformation.username" 
+              [(ngModel)]="username"
+              formControlName="username" 
+              class="w-full">
+
+            <div class="input_icons">
+              <i 
+                [pTooltip]="'inputs.username_required_text' | translate"
+                tooltipPosition="top"
+                class="fi fi-rr-info" 
+                *ngIf="formErrorMessage(usernameForm, 'username', 'required')">
+              </i>
+            </div>
+          </span>
+        </div>
+
+      </form>
+    </ng-template>
+
+    <ng-template pTemplate="footer">
+      <div class="flex justify-content-between">
+        <button 
+          pButton 
+          pRipple 
+          type="submit" 
+          class="p-button-text" 
+          [label]="'buttons.login' | translate" 
+          (click)="login()">
+        </button>
+
+        <button 
+          pButton 
+          pRipple 
+          type="submit" 
+          [icon]="translate.currentLang == 'fa' ? 'fi fi-rr-arrow-left' : 'fi fi-rr-arrow-right'"
+					[iconPos]="translate.currentLang == 'fa' ? 'left' : 'right'"
+					[label]="'buttons.continue' | translate"
+          (click)="nextPage()" 
+          [disabled]="usernameForm.invalid"
+          *ngIf="!loader">
+        </button>
+        <div *ngIf="loader" class="loader loader_1"><div class="button_loader"></div></div>
+      </div>
+    </ng-template>
+
+  </p-card>
+</div>

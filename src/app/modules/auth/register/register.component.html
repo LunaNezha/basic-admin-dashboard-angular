@@ -1,0 +1,231 @@
+<div [lang]="translate.currentLang" class="p-3 sm:p-4 md:p-5 lg:p-6 xl:p-6 surface-0 flex align-items-center justify-content-center min-h-screen min-w-screen overflow-hidden">
+  <div class="grid justify-content-center p-2 lg:p-0" style="min-width:80%">
+    <div class="col-12 xl:col-7" style="border-radius:56px; padding:0.3rem; background: linear-gradient(180deg, var(--primary-color) 10%, rgba(33, 150, 243, 0) 30%);">
+      <div class="h-full w-full m-0 py-6 px-4" style="border-radius:53px; background: linear-gradient(180deg, var(--surface-50) 38.9%, var(--surface-0));">
+        <div class="text-center mb-7">
+          <img src="assets/images/logo-dark.svg" alt="Mahand Logo" height="50" class="mb-2" />
+          <div class="text-900 text-3xl font-bold mb-2">{{ 'titles.register' | translate }}</div>
+          <span class="text-600 font-medium">{{ 'messages.register' | translate }}</span>
+        </div>
+
+        <div class="w-full md:w-11 mx-auto">
+
+          <div class="field md:inline-flex p-0 mb-0 col-12">
+
+            <!-- username -->
+            <div class="field mb-0 p-3 col-12 md:col-6">
+              <label 
+                for="username" 
+                class="block text-900 text-base font-medium mb-2">
+                {{ 'labels.username' | translate }}
+              </label>
+
+              <input 
+                pInputText 
+                id="username"
+                type="text" 
+                [placeholder]="'inputs.username' | translate" 
+                class="w-full">
+            </div>
+
+            <!-- phone number -->
+            <div class="field mb-0 p-3 col-12 md:col-6">
+              <label 
+                for="phone" 
+                class="block text-900 text-base font-medium mb-2">
+                {{ 'labels.phone_number' | translate }}
+              </label>
+
+              <input 
+                pInputText 
+                id="phone"
+                type="text" 
+                [placeholder]="'inputs.phone_number' | translate" 
+                class="w-full">
+            </div>
+          
+          </div>
+
+          <div class="field md:inline-flex p-0 mb-0 col-12">
+            
+            <!-- password -->
+            <div class="field mb-0 p-3 col-12 md:col-6">
+              <label 
+                for="password" 
+                class="block text-900 text-base font-medium mb-2">
+                {{ 'labels.password' | translate }}
+              </label>
+
+              <p-password 
+                id="password" 
+                [(ngModel)]="password" 
+                [promptLabel]="'inputs.password_strength' | translate"
+                styleClass="w-full"
+                [weakLabel]="'titles.weak' | translate"
+                [mediumLabel]="'titles.medium' | translate"
+                [strongLabel]="'titles.strong' | translate"
+                [placeholder]="'inputs.password' | translate">
+              </p-password>
+            </div>
+
+            <!-- confirm password -->
+            <div class="field mb-0 p-3 col-12 md:col-6">
+              <label 
+                for="confirm_password" 
+                class="block text-900 text-base font-medium mb-2">
+                {{ 'labels.confirm_password' | translate }}
+              </label>
+
+              <p-password 
+                id="confirm_password" 
+                [(ngModel)]="confirmPassword" 
+                [promptLabel]="'inputs.password_strength' | translate"
+                styleClass="w-full"
+                [weakLabel]="'titles.weak' | translate"
+                [mediumLabel]="'titles.medium' | translate"
+                [strongLabel]="'titles.strong' | translate"
+                [placeholder]="'inputs.confirm_password' | translate">
+              </p-password>
+            </div>
+
+          </div>
+
+          <div class="field md:inline-flex p-0 mb-0 col-12">
+              
+            <!-- company name -->
+            <div class="field mb-0 p-3 col-12 md:col-6">
+              <label 
+                for="company_name" 
+                class="block text-900 text-base font-medium mb-2">
+                {{ 'labels.company_name' | translate }}
+              </label>
+
+              <input 
+                pInputText 
+                id="company_name"
+                type="text" 
+                [placeholder]="'inputs.company_name' | translate" 
+                class="w-full">
+            </div>
+
+            <!-- company id -->
+            <div class="field mb-0 p-3 col-12 md:col-6">
+              <label 
+                for="company_id" 
+                class="block text-900 text-base font-medium mb-2">
+                {{ 'labels.company_id' | translate }}
+              </label>
+
+              <p-inputNumber
+                mode="decimal"
+                inputId="company_id"
+                [useGrouping]="false"
+                [min]="0" 
+                [max]="100"
+                [placeholder]="'inputs.company_id' | translate"
+                inputStyleClass="p-3"
+                class="w-full">
+              </p-inputNumber>
+            </div>
+
+          </div>
+          
+          <div class="field md:inline-flex p-0 mb-0 col-12">
+              
+            <!-- company phone number -->
+            <div class="field mb-0 p-3 col-12 md:col-6">
+              <label 
+                for="company_phone" 
+                class="block text-900 text-base font-medium mb-2">
+                {{ 'labels.company_phone' | translate }}
+              </label>
+
+              <input 
+                pInputText 
+                id="company_phone"
+                type="text" 
+                [placeholder]="'inputs.company_phone' | translate" 
+                class="w-full">
+            </div>
+
+            <!-- company postal code -->
+            <div class="field mb-0 p-3 col-12 md:col-6">
+              <label 
+                for="company_postal_code" 
+                class="block text-900 text-base font-medium mb-2">
+                {{ 'labels.company_postal_code' | translate }}
+              </label>
+
+              <p-inputNumber
+                mode="decimal"
+                inputId="company_postal_code"
+                [useGrouping]="false"
+                [min]="0"
+                [placeholder]="'inputs.company_postal_code' | translate"
+                inputStyleClass="p-3"
+                class="w-full">
+              </p-inputNumber>
+            </div>
+
+          </div>
+
+          <div class="field md:inline-flex p-0 mb-0 col-12">
+
+            <!-- company address -->
+            <div class="field mb-0 p-3 col-12">
+              <label 
+                for="company_address" 
+                class="block text-900 text-base font-medium mb-2">
+                {{ 'labels.company_address' | translate }}
+              </label>
+
+              <span class="p-input-icon-left w-full">
+                <button 
+                  pButton 
+                  pRipple 
+                  type="button" 
+                  icon="fi fi-rr-marker" 
+                  class="map_marker p-button-rounded p-button-text p-button-danger"
+                  (click)="displayMapDialog = true">
+                </button>
+
+                <input 
+                  pInputText 
+                  id="company_address"
+                  type="text" 
+                  [placeholder]="'inputs.company_address' | translate" 
+                  class="w-full"
+                  style="padding:1rem; padding-left: 3rem;">
+              </span>
+            </div>
+
+          </div>
+
+          <div class="field md:inline-flex p-0 pt-5 mb-0 mt-3 col-12">
+            <button 
+              pButton 
+              pRipple 
+              [label]="'buttons.register' | translate" 
+              class="col-8 md:col-4 p-3 mx-auto text-xl">
+            </button>
+          </div>
+
+        </div>
+
+        <div class="text-center mt-3">
+          <a 
+            class="font-medium no-underline ml-2 text-right cursor-pointer"
+            style="color: var(--primary-color)">
+            {{ 'buttons.not_logined' | translate }}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-map
+  [displayMapDialog]="displayMapDialog"
+  (mapDialogState)="displayMapDialog = false"
+  (submittedMapAddress)="getCompanyMapAddress()">
+</app-map>

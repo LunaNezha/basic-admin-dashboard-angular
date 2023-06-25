@@ -1,0 +1,136 @@
+<section id="add_plan">
+  <header class="w-full px-3 inline-flex justify-content-between align-items-center">
+    <h2>{{ 'titles.add_plan' | translate }}</h2>
+
+    <button 
+      pButton
+      pRipple 
+      type="button"
+      class="p-button-success p-button-raised p-button-rounded"
+      [label]="'buttons.save' | translate"
+      icon="fi fi-rr-check">
+    </button>
+  </header>
+  
+  <main class="my-5">
+
+    <!-- form -->
+    <form [formGroup]="addPlanForm">
+
+      <!-- title -->
+      <div class="flex flex-column col-12 p-3">
+        <div class="mb-2 inline-flex justify-content-between align-items-center">
+          <label 
+            for="title" 
+            class="block text-900 text-base font-medium mb-2">
+            {{ 'labels.plan_title' | translate }}
+          </label>
+        </div>  
+
+        <input 
+          pInputText 
+          id="title"
+          type="text" 
+          [placeholder]="'inputs.plan_title' | translate" 
+          class="w-full"
+          formControlName="title">
+      </div>
+
+      <div class="md:inline-flex p-0 col-12">
+        
+        <!-- employer -->
+        <div class="flex flex-column col-12 p-3 md:col-6">
+          <div class="mb-2 inline-flex justify-content-between align-items-center">
+            <label 
+              for="employer" 
+              class="block text-900 text-base font-medium mb-2">
+              {{ 'labels.employer' | translate }}
+            </label>
+
+            <button
+              pButton
+              type="button"
+              class="p-button-text p-0"
+              icon="fi fi-rr-plus-small"
+              [label]="'buttons.add' | translate"
+              (click)="displayAddEmployerDialog = true">
+            </button>
+          </div>
+
+          <p-dropdown 
+            inputId="employer"
+            [options]="employers"
+            [filter]="true"
+            [filterPlaceholder]="'inputs.short_search' | translate"
+            [placeholder]="'inputs.employer' | translate"
+            [emptyFilterMessage]="'messages.not_found_items' | translate"
+            formControlName="employer">
+          </p-dropdown>
+        </div>
+        
+        <!-- connector -->
+        <div class="flex flex-column col-12 p-3 md:col-6">
+          <div class="mb-2 inline-flex justify-content-between align-items-center">
+            <label 
+              for="connectors" 
+              class="block text-900 text-base font-medium mb-2">
+              {{ 'labels.connectors' | translate }}
+            </label>
+
+            <button
+              pButton
+              type="button"
+              class="p-button-text p-0"
+              icon="fi fi-rr-plus-small"
+              [label]="'buttons.add' | translate">
+            </button>
+          </div>
+
+          <p-dropdown 
+            inputId="connectors"
+            [options]="connectors"
+            [filter]="true"
+            [filterPlaceholder]="'inputs.short_search' | translate"
+            [placeholder]="'inputs.connectors' | translate"
+            [emptyFilterMessage]="'messages.not_found_items' | translate"
+            formControlName="connectors">
+          </p-dropdown>
+        </div>
+        
+      </div>
+
+      <!-- description -->
+      <div class="flex flex-column col-12 p-3">
+        <div class="mb-2 inline-flex justify-content-between align-items-center">
+          <label 
+            for="title" 
+            class="block text-900 text-base font-medium mb-2">
+            {{ 'labels.description' | translate }}
+          </label>
+        </div>  
+
+        <textarea 
+          pInputTextarea 
+          id="title"
+          type="text" 
+          [placeholder]="'inputs.description' | translate" 
+          class="w-full"
+          [rows]="5"
+          formControlName="description">
+        </textarea>
+      </div>
+
+      <!-- file upload -->
+      <div class="flex flex-column col-12 p-3">
+        <app-file-upload></app-file-upload>
+      </div>
+
+    </form>
+
+  </main>
+</section>
+
+<app-add-employer
+  [displayConnectorsDialog]="displayAddEmployerDialog"
+  (dialogState)="displayAddEmployerDialog = false">
+</app-add-employer>

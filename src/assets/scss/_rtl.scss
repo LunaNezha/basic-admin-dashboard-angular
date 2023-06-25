@@ -1,0 +1,167 @@
+body {
+  [lang="fa"] {
+    direction: rtl;
+
+    .p-dropdown-clear-icon {
+      left: 3rem;
+      right: auto;
+    }
+
+    app-topbar {
+      .layout-topbar {
+        .layout-topbar-logo {
+          img {
+            margin-left: 0.5rem;
+          }
+        }
+
+        .layout-menu-button {
+          margin-right: 2rem;
+        }
+
+        .layout-topbar-menu {
+          margin: 0 auto 0 0;
+
+          .layout-topbar-button {
+            margin-right: 1rem;
+          }
+        }
+      }
+    }
+
+    .layout-sidebar {
+      right: 2rem;
+
+      app-menu {
+        .layout-menu-container {
+          .layout-menu {
+            .layout-menuitem-category {
+              ul {
+                li {
+                  a {
+                    span {
+                      margin-right: 0.5rem;
+
+                      &.p-tag {
+                        margin-right: auto;
+                      }
+                    }
+
+                    .menuitem-toggle-icon {
+                      margin-right: auto;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .layout-main-container {
+      padding: 7rem 4rem 2rem 2rem;
+      transition: margin-right $transitionDuration;
+
+      @media (min-width: 992px) {
+        margin-right: 300px;
+      }
+    }
+
+    app-config {
+      .layout-config {
+        left: 0;
+        transform: translateX(-100%);
+        border-top-right-radius: 12px;
+        border-bottom-right-radius: 12px;
+
+        &.layout-config-active {
+          transform: translateX(0);
+        }
+      }
+    }
+  }
+
+  [lang="en"] {
+    direction: ltr;
+
+    .p-dropdown-clear-icon {
+      right: 3rem;
+      left: auto;
+    }
+
+    app-topbar {
+      .layout-topbar {
+        .layout-topbar-logo {
+          img {
+            margin-right: 0.5rem;
+          }
+        }
+
+        .layout-menu-button {
+          margin-left: 2rem;
+        }
+
+        .layout-topbar-menu {
+          margin: 0 0 0 auto;
+
+          .layout-topbar-button {
+            margin-left: 1rem;
+          }
+        }
+      }
+    }
+
+    .layout-sidebar {
+      left: 2rem;
+
+      app-menu {
+        .layout-menu-container {
+          .layout-menu {
+            .layout-menuitem-category {
+              ul {
+                li {
+                  a {
+                    span {
+                      margin-left: 0.5rem;
+
+                      &.p-tag {
+                        margin-left: auto;
+                      }
+                    }
+
+                    .menuitem-toggle-icon {
+                      margin-left: auto;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .layout-main-container {
+      padding: 7rem 2rem 2rem 4rem;
+      transition: margin-left $transitionDuration;
+
+      @media (min-width: 992px) {
+        margin-left: 300px;
+      }
+    }
+
+    app-config {
+      .layout-config {
+        right: 0;
+        transform: translateX(100%);
+        border-top-left-radius: 12px;
+        border-bottom-left-radius: 12px;
+
+        &.layout-config-active {
+          transform: translateX(0);
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,352 @@
+// ========= dialog =========
+.p-dialog {
+  background-color: var(--surface-overlay);
+  border-radius: $borderRadius;
+
+  .p-dialog-header {
+    border-bottom: 1px solid var(--surface-100);
+    border-radius: $borderRadius $borderRadius 0 0;
+
+    .p-dialog-title {
+      font-family: iranyekan;
+    }
+  }
+
+  .p-dialog-content {
+    padding: 1.5rem;
+    border-radius: 0;
+    background-color: var(--surface-ground);
+  }
+
+  .p-dialog-footer {
+    background-color: var(--surface-ground);
+    border-radius: 0 0 $borderRadius $borderRadius;
+  }
+}
+
+// ========= card =========
+.card {
+  background-color: var(--surface-card);
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  border-radius: $borderRadius;
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.02), 0px 0px 2px rgba(0, 0, 0, 0.05), 0px 1px 4px rgba(0, 0, 0, 0.08) !important;
+
+  &.card-w-title {
+    padding-bottom: 2rem;
+  }
+}
+
+// ========= table =========
+p-table {
+  .p-datatable {
+    border-radius: $borderRadius;
+    box-shadow: 0px 3px 5px rgb(0 0 0 / 2%), 0px 0px 2px rgb(0 0 0 / 5%), 0px 1px 4px rgb(0 0 0 / 8%);
+
+    .p-datatable-header {
+      border-radius: $borderRadius $borderRadius 0 0;
+      border: 0;
+      background-color: var(--surface-overlay);
+
+      .table-header {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 2rem;
+
+        input {
+          border: 0;
+          padding: 0 1rem !important;
+          background: transparent;
+          box-shadow: none;
+        }
+
+        .actions {
+          display: grid;
+          grid-auto-flow: column;
+          gap: 1rem;
+        }
+      }
+    }
+
+
+    .p-datatable-wrapper {
+      position: relative;
+      overflow: auto;
+      white-space: nowrap;
+
+      table {
+        table-layout: auto;
+
+        thead.p-datatable-thead {
+          tr {
+            th {
+              font-family: "iranyekan";
+              padding: 1rem 10px;
+              position: relative;
+            }
+          }
+        }
+
+        tbody.p-datatable-tbody {
+          tr {
+            &.empty_message {
+              td {
+                font-family: iranyekan;
+              }
+            }
+
+            td {
+              text-align: right;
+              padding: 10px;
+
+              span:not(.p-checkbox-icon) {
+                font-family: iranyekan;
+              }
+
+              .actions {
+                display: grid;
+                grid-auto-flow: column;
+                justify-content: flex-start;
+                gap: 5px;
+
+                .p-button-rounded.p-button-outlined,
+                .p-button-rounded.p-button-text {
+                  padding: 6px 8px !important;
+                  width: auto;
+                  height: auto !important;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    p-paginator {
+      .p-paginator-bottom {
+        border-radius: 0 0 $borderRadius $borderRadius  !important;
+        direction: ltr;
+
+        span.p-paginator-current {
+          font-family: 'iranyekan';
+          margin-right: auto;
+        }
+
+        p-dropdown {
+          margin-left: auto;
+
+          .p-dropdown {
+            margin: 0 !important;
+            height: auto !important;
+            border: 0;
+            padding: 0 !important;
+
+            .p-dropdown-label {
+              padding: 10px !important;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// ========= dropdown =========
+p-dropdown {
+  .p-dropdown {
+    width: 100%;
+
+    span.p-dropdown-label {
+      padding: 0;
+      font-family: "iranyekan";
+    }
+
+    .p-dropdown-panel {
+      border-radius: $borderRadius;
+
+      .p-dropdown-header {
+        background-color: var(--surface-overlay);
+        border-radius: $borderRadius $borderRadius 0 0;
+
+        .p-dropdown-filter-container {
+          .p-dropdown-filter {
+            margin: 0 !important;
+            border: 0;
+            background: transparent;
+            padding: 10px 25px 10px 10px !important;
+            box-shadow: none;
+          }
+
+          .p-dropdown-filter-icon {
+            right: 0;
+          }
+        }
+      }
+
+      .p-dropdown-items-wrapper {
+        .p-dropdown-items {
+          padding: 0;
+
+          .p-dropdown-empty-message {
+            font-family: 'iranyekan';
+            opacity: 70%;
+            padding: 1rem 2rem !important;
+          }
+
+          p-dropdownitem {
+            .p-dropdown-item {
+              span {
+                font-family: 'iranyekan';
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// ========= context menu =========
+p-contextmenu {
+  .p-contextmenu {
+    p-contextmenusub {
+      ul {
+        li {
+          .p-menuitem-link {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            align-items: center;
+            gap: 10px;
+            padding: 15px;
+
+            span.p-menuitem-icon {
+              margin: 0 !important;
+            }
+
+            span.p-menuitem-text {
+              font-family: 'iranyekan';
+              font-weight: 600;
+              font-size: 90%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// ========= multi select =========
+p-multiselect {
+  .p-multiselect {
+    width: 100%;
+
+    .p-multiselect-label-container {
+      .p-multiselect-label {
+        padding: 1rem 1.5rem !important;
+        font-family: 'iranyekan';
+      }
+    }
+
+    .p-multiselect-panel {
+      .p-multiselect-header {
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        gap: 1rem;
+
+        .p-checkbox,
+        .p-multiselect-close {
+          margin: 0 !important;
+        }
+
+        .p-multiselect-filter-container {
+          input {
+            padding-inline: 2rem !important;
+          }
+        }
+      }
+
+      .p-multiselect-items-wrapper {
+        ul {
+          p-multiselectitem {
+            li.p-multiselect-item {
+              display: grid;
+              grid-template-columns: auto 1fr;
+              gap: 1rem;
+
+              .p-checkbox {
+                margin-right: 0 !important;
+              }
+
+              span {
+                font-family: iranyekan;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// ========= messages =========
+p-messages {
+  .p-messages {
+    display: grid;
+    gap: 1rem;
+
+    .p-message {
+      margin: 0;
+
+      .p-message-wrapper {
+        display: grid;
+        grid-template-columns: auto 1fr auto auto;
+        justify-content: flex-start;
+        gap: 1rem;
+        font-family: 'iranyekan';
+
+        .p-message-icon {
+          margin: 0 !important;
+        }
+
+        .p-message-detail {
+          margin: 0 !important;
+        }
+      }
+    }
+  }
+}
+
+// ========= tooltip =========
+.p-tooltip .p-tooltip-text {
+  font-family: iranyekan !important;
+  font-size: 75% !important;
+}
+
+// ========= tooltip =========
+p-panel {
+  .p-panel {
+    box-shadow: $boxShadow;
+    border-radius: $borderRadius;
+    background-color: var(--surface-overlay);
+
+    .p-panel-header {
+      border: 0 !important;
+      background-color: var(--surface-overlay) !important;
+      border-radius: $borderRadius;
+      display: grid;
+      grid-template-columns: 1fr auto;
+
+      .header {
+        gap: 8px;
+      }
+    }
+
+    .p-toggleable-content {
+      .p-panel-content {
+        border: 0 !important;
+        border-top: 1px solid #dee2e6 !important;
+        border-radius: 0 0 $borderRadius $borderRadius;
+      }
+    }
+  }
+}

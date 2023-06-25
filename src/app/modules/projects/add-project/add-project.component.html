@@ -1,0 +1,152 @@
+<section id="add_projects">
+  <header class="w-full inline-flex justify-content-between align-items-center">
+    <h2>{{ 'titles.add_project' | translate }}</h2>
+
+    <button 
+      pButton
+      pRipple 
+      type="button"
+      class="p-button-success"
+      [label]="'buttons.save' | translate"
+      icon="fi fi-rr-check">
+    </button>
+  </header>
+  
+  <main class="my-5">
+
+    <!-- title -->
+    <div class="title p-3">
+      <input 
+        pInputText 
+        id="title"
+        type="text" 
+        [placeholder]="'inputs.project_title' | translate" 
+        class="w-full p-4">
+    </div>
+
+    <!-- form -->
+    <div class="form">
+
+      <div class="field md:inline-flex p-0 mb-0 col-12">
+        
+        <!-- employer -->
+        <div class="flex flex-column col-12 p-3 md:col-6">
+          <div class="mb-2 inline-flex justify-content-between align-items-center">
+            <label 
+              for="employer" 
+              class="block text-900 text-base font-medium mb-2">
+              {{ 'labels.employer' | translate }}
+            </label>
+
+            <button
+              pButton
+              type="button"
+              class="p-button-text"
+              icon="fi fi-rr-plus-small"
+              [label]="'buttons.add' | translate">
+            </button>
+          </div>
+
+          <p-dropdown 
+            inputId="employer"
+            [options]="employers"
+            [filter]="true"
+            [filterPlaceholder]="'inputs.short_search' | translate"
+            [placeholder]="'inputs.employer' | translate"
+            [emptyFilterMessage]="'messages.not_found_items' | translate">
+          </p-dropdown>
+        </div>
+        
+        <!-- rsearch groups -->
+        <div class="flex flex-column col-12 p-3 md:col-6">
+          <div class="mb-2 inline-flex justify-content-between align-items-center">
+            <label 
+              for="researchGroups" 
+              class="block text-900 text-base font-medium mb-2">
+              {{ 'labels.research_groups' | translate }}
+            </label>
+
+            <button
+              pButton
+              type="button"
+              class="p-button-text"
+              icon="fi fi-rr-plus-small"
+              [label]="'buttons.add' | translate">
+            </button>
+          </div>
+
+          <p-multiSelect 
+            inputId="researchGroups"
+            [options]="researchGroups"
+            [filterPlaceHolder]="'inputs.short_search' | translate"
+            [placeholder]="'inputs.research_groups' | translate"
+            [emptyFilterMessage]="'messages.not_found_items' | translate">
+          </p-multiSelect>
+        </div>
+        
+      </div>
+
+      <div class="md:inline-flex p-0 col-12">
+        
+        <!-- project management -->
+        <div class="flex flex-column col-12 p-3 md:col-6">
+          <div class="mb-2 inline-flex justify-content-between align-items-center">
+            <label 
+              for="projectManagement" 
+              class="block text-900 text-base font-medium mb-2">
+              {{ 'labels.project_management' | translate }}
+            </label>
+
+            <button
+              pButton
+              type="button"
+              class="p-button-text"
+              icon="fi fi-rr-plus-small"
+              [label]="'buttons.add' | translate">
+            </button>
+          </div>
+
+          <p-dropdown 
+            inputId="projectManagement"
+            [options]="projectManagement"
+            [filter]="true"
+            [filterPlaceholder]="'inputs.short_search' | translate"
+            [placeholder]="'inputs.project_management' | translate"
+            [emptyFilterMessage]="'messages.not_found_items' | translate">
+          </p-dropdown>
+        </div>
+        
+        <!-- executor -->
+        <div class="flex flex-column col-12 p-3 md:col-6">
+          <div class="mb-2 inline-flex justify-content-between align-items-center">
+            <label 
+              for="executor" 
+              class="block text-900 text-base font-medium mb-2">
+              {{ 'labels.executor' | translate }}
+            </label>
+
+            <button
+              pButton
+              type="button"
+              class="p-button-text"
+              icon="fi fi-rr-plus-small"
+              [label]="'buttons.add' | translate">
+            </button>
+          </div>
+
+          <p-dropdown 
+            inputId="executor"
+            [options]="executors"
+            [filter]="true"
+            [filterPlaceholder]="'inputs.short_search' | translate"
+            [placeholder]="'inputs.executor' | translate"
+            [emptyFilterMessage]="'messages.not_found_items' | translate">
+          </p-dropdown>
+        </div>
+        
+      </div>
+
+    </div>
+
+  </main>
+</section>

@@ -1,0 +1,34 @@
+@use '../assets/scss/variables' as v;
+
+.layout-wrapper {
+  .layout-sidebar {
+    position: fixed;
+    width: 300px;
+    height: calc(100vh - 9rem);
+    z-index: 999;
+    overflow-y: auto;
+    user-select: none;
+    top: 7rem;
+    transition: transform v.$transitionDuration, left v.$transitionDuration;
+    background-color: var(--surface-overlay);
+    border-radius: v.$borderRadius;
+    padding: 1.5rem;
+    box-shadow: v.$boxShadow;
+  }
+
+  .layout-main-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    justify-content: space-between;
+
+    &.hasChangeOutlet {
+      margin: 0 !important;
+      padding: 0 0 1rem 0 !important;
+    }
+
+    .layout-main {
+      flex: 1 1 auto;
+    }
+  }
+}

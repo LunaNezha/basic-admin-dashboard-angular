@@ -1,0 +1,164 @@
+<section id="folder" [lang]="translate.currentLang">
+  <header class="w-full inline-flex justify-content-between align-items-center">
+    <h2>{{ 'titles.folder' | translate }}</h2>
+
+    <!-- <button 
+      pButton
+      pRipple 
+      type="button"
+      [label]="'buttons.add_project' | translate"
+      [routerLink]="['/projects/add']"
+      icon="fi fi-rr-add document">
+    </button> -->
+  </header>
+  
+  <main class="my-5">
+    
+    <p-contextMenu #cm [model]="contentMenuItems"></p-contextMenu>
+
+    <p-table 
+      #dt 
+      [value]="folders" 
+      [(selection)]="selectedFolders" 
+      selectionMode="multiple"
+      dataKey="id" 
+      styleClass="p-datatable-gridlines p-datatable-striped" 
+      [rowHover]="true"
+      [(contextMenuSelection)]="selectedFolder" 
+      [contextMenu]="cm"
+      [rows]="10" 
+      [showCurrentPageReport]="true" 
+      [rowsPerPageOptions]="[10, 25, 50, 100]" 
+      [loading]="loading" 
+      responsiveLayout="scroll"
+      [paginator]="true" 
+      [lazy]="true"
+      (onLazyLoad)="loadFolders($event)"
+      [totalRecords]="totalRecords"
+      currentPageReportTemplate="{{ 'global.show' | translate}} ({first} {{ 'global.to' | translate }} {last}) {{ 'global.of' | translate }} {totalRecords}"
+      [filterDelay]="0" 
+      [globalFilterFields]="['faTitle', 'enTitle', 'subject']">
+
+      <ng-template pTemplate="caption">
+        <div class="table-header w-full">
+          <input 
+            pInputText 
+            type="text" 
+            class="w-full"
+            (input)="dt.filterGlobal($event.target.value, 'contains')" 
+            [placeholder]="'inputs.long_search' | translate">
+
+          <div class="actions">
+            <button
+              pButton
+              pRipple
+              type="button"
+              class="p-button-success p-button-text"
+              (click)="exportExcel()"
+              [label]="'buttons.export_excel' | translate"
+              icon="fi fi-rr-file-excel"
+              pTooltip="Excel"
+              tooltipPosition="top">
+            </button>
+          </div>
+        </div>
+      </ng-template>
+
+      <ng-template pTemplate="header" let-columns>
+        <tr>
+          <th style="width: 3rem">
+            <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+          </th>
+
+          <th style="width: 3rem">
+            <div class="head">{{ 'global.row' | translate }}</div>
+          </th>
+          
+          <th pSortableColumn="title">
+            <div class="flex justify-content-between align-items-center">
+              {{ 'titles.title' | translate }}
+              <p-sortIcon field="title"></p-sortIcon>
+            </div>
+          </th>
+          
+          <th pSortableColumn="subject">
+            <div class="flex justify-content-between align-items-center">
+              {{ 'titles.subject' | translate }}
+              <p-sortIcon field="subject"></p-sortIcon>
+            </div>
+          </th>
+          
+          <th style="width: 9rem;">
+            <div class="flex justify-content-between align-items-center">
+              {{ 'titles.operations' | translate }}
+            </div>
+          </th>
+        </tr>
+      </ng-template>
+
+      <ng-template pTemplate="body" let-folder let-rowsIndex="rowIndex">
+        <tr class="p-selectable-row" [pContextMenuRow]="product">
+          <td>
+            <p-tableCheckbox [value]="folder"></p-tableCheckbox>
+          </td>
+
+          <td>
+            <span class="p-column-title">{{ 'global.row' | translate }}</span>
+            <span>{{ rowsIndex + 1 }}</span>
+          </td>
+
+          <td>
+            <span class="p-column-title">{{ 'titles.title' | translate }}</span>
+            <span>{{ translate.currentLang == 'fa' ? folder.faTitle : folder.enTitle }}</span>
+          </td>
+
+          <td>
+            <span class="p-column-title">{{ 'titles.subject' | translate }}</span>
+            <span>{{ folder.subject }}</span>
+          </td>
+          
+          <td>
+            <span class="p-column-title">{{ 'titles.operations' | translate }}</span>
+
+            <div class="actions">
+              <button
+                pButton
+                type="button"
+                class="p-button-rounded p-button-secondary p-button-text"
+                icon="fi fi-rr-eye"
+                [pTooltip]="'tooltips.show' | translate"
+                tooltipPosition="top">
+              </button>
+
+              <button
+                pButton
+                type="button"
+                class="p-button-rounded p-button-info p-button-text"
+                icon="fi fi-rr-pencil"
+                [pTooltip]="'tooltips.edit' | translate"
+                tooltipPosition="top">
+              </button>
+
+              <button
+                pButton
+                type="button"
+                class="p-button-rounded p-button-danger p-button-text"
+                icon="fi fi-rr-trash"
+                [pTooltip]="'tooltips.delete' | translate"
+                tooltipPosition="top">
+              </button>
+            </div>
+          </td>
+        </tr>
+      </ng-template>
+
+      <ng-template pTemplate="emptymessage">
+        <tr class="empty_message">
+          <td colspan="5">{{ 'messages.no_folder' | translate }}</td>
+        </tr>
+      </ng-template>
+
+    </p-table>
+
+  </main>
+</section>

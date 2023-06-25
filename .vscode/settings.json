@@ -1,0 +1,24 @@
+{
+  "angular.enable-strict-mode-prompt": false,
+  "editor.defaultFormatter": null,
+  "[scss]": {
+    "editor.defaultFormatter": "vscode.css-language-features"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "vscode.css-language-features"
+  },
+  "editor.tabSize": 2,
+  "workbench.editor.highlightModifiedTabs": true,
+  "editor.detectIndentation": false,
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "editor.insertSpaces": true,
+  "editor.autoIndent": "full",
+  "workbench.tree.indent": 8,
+	"html.format.indentInnerHtml": false,
+  "prettier.useTabs": true,
+  "[typescript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  }
+}

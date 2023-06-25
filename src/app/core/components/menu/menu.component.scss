@@ -1,0 +1,23 @@
+.layout-menu {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    &.layout-menuitem-category {
+      margin-top: 0.75rem;
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+
+    .layout-menuitem-root-text {
+      text-transform: uppercase;
+      color: var(--surface-900);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      font-size: 0.875rem;
+    }
+  }
+}

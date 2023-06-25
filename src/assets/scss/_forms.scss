@@ -1,0 +1,126 @@
+p-inputnumber {
+  .p-inputnumber {
+    width: 100%;
+  }
+}
+
+p-password {
+  input.p-inputtext {
+    width: 100%;
+  }
+}
+
+p-inputmask {
+  input.p-inputmask {
+    direction: ltr;
+    text-align: right;
+  }
+}
+
+label {
+  font-family: iranyekan;
+}
+
+input,
+textarea,
+p-dropdown .p-dropdown {
+  border: 0 !important;
+  box-shadow: $boxShadow;
+  padding: 1rem !important;
+  border-radius: $borderRadius  !important;
+  font-family: "iranyekan" !important;
+  background-color: var(--surface-overlay);
+}
+
+.field {
+  .p-input-icon-left {
+    position: relative;
+
+    .map_marker {
+      position: absolute;
+      inset: 7px auto 3px 10px;
+      width: 35px;
+      font-size: 1.2rem;
+      height: 35px;
+      padding: 0;
+      display: grid;
+      align-items: center;
+    }
+
+    .input_icons {
+      position: absolute;
+      display: grid;
+      align-items: center;
+      grid-auto-flow: column;
+      gap: 10px;
+      inset: 0 auto 0 14px;
+
+      i {
+        color: var(--black);
+
+        &.fi.fi-rr-info {
+          color: var(--red);
+        }
+      }
+    }
+  }
+
+  p.mobile_number {
+    font-size: 80%;
+    font-family: "iranyekan";
+    font-weight: 500;
+    opacity: 70%;
+    color: var(--black);
+    display: grid;
+    align-items: center;
+    grid-auto-flow: column;
+    justify-content: flex-start;
+    gap: 10px;
+
+    span {
+      direction: ltr;
+    }
+  }
+
+  ng-otp-input {
+    .wrapper {
+      display: grid;
+      align-items: stretch;
+      direction: ltr;
+      gap: 15px;
+      grid-template-columns: repeat(6, 1fr);
+      justify-content: space-between;
+
+      input {
+        font-weight: 500;
+        font-family: iranyekan;
+        margin-right: 0 !important;
+        font-size: 1rem;
+        color: #495057;
+        background: var(--surface-overlay);
+        padding: 0.75rem;
+        border: 1px solid #ced4da;
+      }
+    }
+  }
+
+  .timer {
+    margin-top: 10px;
+    color: var(--black);
+    font-family: "iranyekan";
+    font-size: 80%;
+    font-weight: 500;
+    opacity: 70%;
+
+    #send_again {
+      display: grid;
+      align-items: center;
+      justify-content: space-between;
+      grid-auto-flow: column;
+
+      a {
+        font-weight: 800;
+      }
+    }
+  }
+}

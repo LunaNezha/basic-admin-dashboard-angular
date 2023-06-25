@@ -1,0 +1,56 @@
+<div class="stepsdemo-content" [lang]="translate.currentLang">
+  <p-card>
+
+    <ng-template pTemplate="content">
+      <div class="field mb-0 col-12">
+        <p class="mobile_number">{{ 'global.verify_code.to_phone' | translate }} <span>{{ getMobileNumber }}</span> {{ 'global.verify_code.was_sent' | translate }}</p>
+
+        <!-- verify code input -->
+        <ng-otp-input
+          #ngOtpInput
+          (onInputChange)="onOtpChange($event)"
+          [config]="codeConfig">
+        </ng-otp-input>
+
+        <div class="timer" id="timer">
+          <div id="time_counter" *ngIf="timeRemaining > 0">{{ 'global.time_remaining' | translate }} <span>{{ timeRemaining }}</span> {{ 'global.seconds' | translate }}</div>
+
+          <div id="send_again" *ngIf="timeRemaining == 0">
+            <span>{{ 'messages.verify_code_not_send' | translate }}</span>
+            <a (click)="sendVerifyCodeAgain()">{{ 'buttons.send_again' | translate }}</a>
+          </div>
+        </div>
+
+      </div>
+    </ng-template>
+
+    <ng-template pTemplate="footer">
+      <div class="flex justify-content-between">
+
+        <button
+          pButton
+          pRipple
+          type="button"
+          class="p-button-text p-button-danger"
+          [label]="'buttons.back' | translate"
+          (click)="prevPage()">
+        </button>
+
+        <button
+          pButton
+          pRipple
+          type="submit"
+          class="green_btn"
+          [icon]="translate.currentLang == 'fa' ? 'fi fi-rr-arrow-left' : 'fi fi-rr-arrow-right'"
+                    [iconPos]="translate.currentLang == 'fa' ? 'left' : 'right'"
+                    [label]="'buttons.continue' | translate"
+          [disabled]="twofaCode == ''"
+          (click)="nextPage()"
+          *ngIf="!loader">
+        </button>
+        <div *ngIf="loader" class="loader loader_1"><div class="button_loader"></div></div>
+      </div>
+    </ng-template>
+
+  </p-card>
+</div>

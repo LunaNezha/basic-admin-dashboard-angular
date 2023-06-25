@@ -1,0 +1,102 @@
+<p-dialog
+  id="add_connector"
+  [lang]="translate.currentLang"
+  [header]="'titles.add_connector' | translate"
+  [(visible)]="displayDialog"
+  [breakpoints]="{'960px': '95vw'}" 
+  [style]="{width: '95vw'}"
+  [draggable]="false" 
+  [resizable]="false"
+	[dismissableMask]="true"
+	[rtl]="translate.currentLang == 'fa' ? 'rtl' : 'ltr'"
+	[modal]="true"
+	position="center"
+  (onHide)="closeDialog()">
+
+  <form [formGroup]="addConnectorForm" class="form">
+
+    <div class="md:inline-flex p-0 col-12">
+
+      <!-- name -->
+      <div class="flex flex-column w-full p-3">
+        <div class="mb-2 inline-flex justify-content-between align-items-center">
+          <label 
+            for="name" 
+            class="block text-900 text-base font-medium mb-2">
+            {{ 'labels.name' | translate }}
+          </label>
+        </div>  
+
+        <input 
+          pInputText 
+          id="name"
+          type="text" 
+          [placeholder]="'inputs.employer_name' | translate" 
+          class="w-full"
+          formControlName="name">
+      </div>
+
+      <!-- phone -->
+      <div class="flex flex-column w-full p-3">
+        <div class="mb-2 inline-flex justify-content-between align-items-center">
+          <label 
+            for="phone" 
+            class="block text-900 text-base font-medium mb-2">
+            {{ 'labels.phone' | translate }}
+          </label>
+        </div>  
+
+        <input 
+          pInputText 
+          id="phone"
+          type="text" 
+          [placeholder]="'inputs.phone' | translate" 
+          class="w-full"
+          formControlName="phone">
+      </div>
+
+      <!-- address -->
+      <div class="flex flex-column w-full p-3">
+        <div class="mb-2 inline-flex justify-content-between align-items-center">
+          <label
+            for="address"
+            class="block text-900 text-base font-medium mb-2">
+            {{ 'labels.address' | translate }}
+          </label>
+        </div>
+
+        <input 
+          pInputText 
+          id="address"
+          type="text" 
+          [placeholder]="'inputs.address' | translate" 
+          class="w-full"
+          formControlName="address">
+      </div>
+
+    </div>
+
+  </form>
+
+  <ng-template pTemplate="footer">
+    <div class="w-full inline-flex justify-content-between">
+      <button 
+        pButton 
+        pRipple 
+        type="button" 
+        class="p-button-danger p-button-text p-button-rounded"
+        [label]="'buttons.back' | translate" 
+        (click)="displayDialog = false">
+      </button>
+
+      <button 
+        pButton 
+        pRipple 
+        type="button" 
+        class="p-button-success p-button-rounded"
+        [label]="'buttons.submit' | translate">
+      </button>
+    </div>
+  </ng-template>
+
+</p-dialog>

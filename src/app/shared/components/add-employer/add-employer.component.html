@@ -1,0 +1,190 @@
+<p-dialog
+  id="add_employer"
+  [lang]="translate.currentLang"
+  [header]="'titles.add_employer' | translate"
+  [(visible)]="displayConnectorsDialog"
+  [breakpoints]="{'960px': '95vw'}" 
+  [style]="{width: '95vw', minHeight: '90%'}"
+  [draggable]="false" 
+  [resizable]="false"
+	[dismissableMask]="true"
+	[rtl]="translate.currentLang == 'fa' ? 'rtl' : 'ltr'"
+	[modal]="true"
+	position="center"
+  (onHide)="closeDialog()">
+
+  <form [formGroup]="addEmployerForm" class="form flex gap-4 w-full">
+
+    <div class="connectors flex flex-column col-4 p-5 ml-5">
+
+      <div class="header flex align-items-center justify-content-between mb-4">
+        <h3>{{ 'titles.connectors' | translate }}</h3>
+
+        <button 
+          pButton
+          pRipple 
+          type="button"
+          class="p-button-success p-button-rounded p-button-sm py-2 px-3"
+          [label]="'buttons.add' | translate"
+          icon="fi fi-rr-plus"
+          (click)="displayAddConnectorDialog = true">
+        </button>
+      </div>
+  
+      <!-- search -->
+      <div class="search flex flex-1 mb-4">
+        <input 
+          pInputText
+          type="text" 
+          [placeholder]="'inputs.short_search' | translate"
+          class="flex-1">
+      </div>
+
+      <!-- connector lists -->
+      <ul class="connector_lists">
+        <li *ngFor="let item of connectorChecklists; trackBy: trackByFunction;">
+          <p-radioButton 
+            name="item" 
+            [value]="item" 
+            [inputId]="item.id"
+            [(ngModel)]="selectedConnector"
+            [ngModelOptions]="{standalone: true}">
+          </p-radioButton>
+
+          <div class="content flex align-items-center justify-content-between">
+            <strong>{{ item.name }}</strong>
+
+            <button 
+              pButton
+              pRipple 
+              type="button"
+              class="p-button-rounded p-button-info p-button-text"
+              icon="fi fi-rr-eye"
+              (click)="displayConnectorDetailDialog = true">
+            </button>
+          </div>
+        </li>
+      </ul>
+
+    </div>
+    
+    <div class="add_employer_form flex flex-column p-0 col-8 mr-auto">
+
+      <div class="md:inline-flex p-0 col-12">
+
+        <!-- name -->
+        <div class="flex flex-column w-full p-3">
+          <div class="mb-2 inline-flex justify-content-between align-items-center">
+            <label 
+              for="name" 
+              class="block text-900 text-base font-medium mb-2">
+              {{ 'labels.name' | translate }}
+            </label>
+          </div>  
+
+          <input 
+            pInputText 
+            id="name"
+            type="text" 
+            [placeholder]="'inputs.employer_name' | translate" 
+            class="w-full"
+            formControlName="name">
+        </div>
+
+        <!-- national code -->
+        <div class="flex flex-column w-full p-3">
+          <div class="mb-2 inline-flex justify-content-between align-items-center">
+            <label
+              for="nationalCode"
+              class="block text-900 text-base font-medium mb-2">
+              {{ 'labels.id_or_nationalCode' | translate }}
+            </label>
+          </div>
+
+          <input
+            pInputText
+            id="nationalCode"
+            type="number"
+            [placeholder]="'inputs.id_or_nationalCode' | translate"
+            class="w-full"
+            formControlName="nationalCode">
+        </div>
+
+        <!-- phone -->
+        <div class="flex flex-column w-full p-3">
+          <div class="mb-2 inline-flex justify-content-between align-items-center">
+            <label 
+              for="phone" 
+              class="block text-900 text-base font-medium mb-2">
+              {{ 'labels.phone' | translate }}
+            </label>
+          </div>  
+
+          <input 
+            pInputText 
+            id="phone"
+            type="text" 
+            [placeholder]="'inputs.phone' | translate" 
+            class="w-full"
+            formControlName="phone">
+        </div>
+
+      </div>
+
+      <div class="md:inline-flex p-0 col-12">
+
+        <!-- address -->
+        <div class="flex flex-column col-12 p-3">
+          <div class="mb-2 inline-flex justify-content-between align-items-center">
+            <label
+              for="address"
+              class="block text-900 text-base font-medium mb-2">
+              {{ 'labels.address' | translate }}
+            </label>
+          </div>
+
+          <textarea 
+            pInputTextarea 
+            id="address"
+            type="text" 
+            [placeholder]="'inputs.address' | translate" 
+            class="w-full"
+            [rows]="3"
+            formControlName="address">
+          </textarea>
+        </div>
+
+      </div>
+      
+    </div>
+
+  </form>
+
+  <ng-template pTemplate="footer">
+    <div class="w-full inline-flex justify-content-between">
+      <button 
+        pButton 
+        pRipple 
+        type="button" 
+        class="p-button-danger p-button-text p-button-rounded"
+        [label]="'buttons.back' | translate" 
+        (click)="displayConnectorsDialog = false">
+      </button>
+
+      <button 
+        pButton 
+        pRipple 
+        type="button" 
+        class="p-button-success p-button-rounded"
+        [label]="'buttons.submit' | translate">
+      </button>
+    </div>
+  </ng-template>
+
+</p-dialog>
+
+
+<app-add-connector
+  [displayDialog]="displayAddConnectorDialog"
+  (dialogState)="displayAddConnectorDialog = false">
+</app-add-connector>

@@ -1,0 +1,60 @@
+<p-dialog
+  [lang]="translate.currentLang"
+  id="reject_plan"
+  [header]="'titles.reject_plan' | translate"
+  [(visible)]="displayDialog"
+  [breakpoints]="{'960px': '75vw'}" 
+  [style]="{width: '50vw'}"
+  [draggable]="false" 
+  [resizable]="false"
+	[dismissableMask]="true"
+	[rtl]="translate.currentLang == 'fa' ? 'rtl' : 'ltr'"
+	[modal]="true"
+	position="center"
+  (onHide)="closeDialog()">
+
+  <div class="form">
+
+    <!-- description -->
+    <div class="flex flex-column">
+      <label 
+        for="description" 
+        class="block text-900 text-base font-medium mb-2">
+        {{ 'labels.description' | translate }}
+      </label>
+
+      <textarea 
+        pInputTextarea 
+        id="title"
+        type="text" 
+        [placeholder]="'inputs.description' | translate" 
+        class="w-full"
+        [rows]="5"
+        [(ngModel)]="description">
+      </textarea>
+    </div>
+
+  </div>
+
+  <ng-template pTemplate="footer">
+    <div class="w-full inline-flex justify-content-between">
+      <button 
+        pButton 
+        pRipple 
+        type="button" 
+        class="p-button-danger p-button-text p-button-rounded"
+        [label]="'buttons.back' | translate" 
+        (click)="displayDialog = false">
+      </button>
+
+      <button 
+        pButton 
+        pRipple 
+        type="button" 
+        class="p-button-success p-button-rounded"
+        [label]="'buttons.submit' | translate">
+      </button>
+    </div>
+  </ng-template>
+
+</p-dialog>

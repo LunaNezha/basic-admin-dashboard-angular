@@ -1,0 +1,27 @@
+<p-fileUpload 
+  name="myfile[]" 
+  url="./upload.php"
+  multiple="multiple"
+  accept="image/*"
+  maxFileSize="1000000"
+  [invalidFileSizeMessageSummary]="'messages.invalid_file_size_message_summary' | translate"
+  [invalidFileSizeMessageDetail]="'messages.invalid_file_size_message_detail' | translate"
+  [invalidFileTypeMessageSummary]="'messages.invalid_file_type_message_summary' | translate"
+  [invalidFileLimitMessageDetail]="'messages.invalid_file_limit_message_detail' | translate"
+  [invalidFileLimitMessageSummary]="'messages.invalid_file_limit_message_summary' | translate"
+  [invalidFileTypeMessageDetail]="'messages.invalid_file_type_message_detail' | translate"
+  [chooseLabel]="'buttons.choose' | translate"
+  [uploadLabel]="'buttons.upload' | translate"
+  [cancelLabel]="'buttons.cancel' | translate"
+  chooseIcon="fi fi-rr-plus-small"
+  uploadIcon="fi fi-rr-upload"
+  cancelIcon="fi fi-rr-cross-small">
+
+  <ng-template pTemplate="content" let-files>
+    <div class="placeholder">
+      <i class="fi fi-rr-cloud-upload"></i>
+      <p>{{ 'messages.upload_file' | translate }}</p>
+    </div>
+  </ng-template>
+
+</p-fileUpload>

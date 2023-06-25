@@ -1,0 +1,149 @@
+<section id="plan_details" class="flex pb-5">
+  <main>
+    
+    <!-- title -->
+    <div class="information flex align-items-center justify-content-start flex-1 p-3">
+      <i class="fi fi-rr-document text-2xl text-yellow-400 bg-yellow-50 border-circle p-3"></i>
+      <div class="content flex flex-column">
+        <h4>{{ 'titles.title' | translate }}</h4>
+        <span>{{ planDetails.faTitle }}</span>
+      </div>
+    </div>
+
+    <!-- description -->
+    <p-panel 
+      expandIcon="fi fi-rr-plus-small"
+      collapseIcon="fi fi-rr-minus-small"
+      [toggleable]="true"
+      [collapsed]="true">
+
+      <!-- header of description panel -->
+      <ng-template pTemplate="header">
+        <div class="header flex align-items-center justify-content-start">
+          <i class="fi fi-rr-text text-2xl text-purple-400 bg-purple-50 border-circle p-3"></i>
+          <h4>{{ 'titles.description' | translate }}</h4>
+        </div>
+      </ng-template>
+
+      <!-- content -->
+      <div class="content">
+        <p class="text">{{ planDetails.description }}</p>
+      </div>
+
+    </p-panel>
+
+  </main>
+
+  <aside>
+    
+    <!-- actions -->
+    <div class="actions flex justify-content-between align-items-center">
+      <button 
+        pButton
+        pRipple 
+        type="button"
+        class="p-button-danger p-button-text p-button-rounded"
+        [label]="'buttons.reject' | translate"
+        (click)="displayRejectPlanDialog = true">
+      </button>
+
+      <button 
+        pButton
+        pRipple 
+        type="button"
+        class="p-button-success p-button-raised p-button-rounded"
+        [label]="'buttons.continue_operations' | translate"
+        icon="fi fi-rr-arrow-small-left"
+        [iconPos]="translate.currentLang == 'fa' ? 'right' : 'left'"
+        (click)="displayOperationDialog = true">
+      </button>
+    </div>
+
+    <!-- status -->
+    <p-panel 
+      expandIcon="fi fi-rr-plus-small"
+      collapseIcon="fi fi-rr-minus-small"
+      [toggleable]="true"
+      [collapsed]="true"
+      toggler="header"
+      id="status">
+
+      <!-- header of files panel -->
+      <ng-template pTemplate="header">
+        <div class="header flex align-items-center justify-content-start">
+          <i class="fi fi-rr-flag text-2xl text-pink-400 bg-pink-50 border-circle p-3"></i>
+          <div class="content flex flex-column">
+            <h4>{{ 'titles.status' | translate }}</h4>
+            <span>{{ planDetails.statusName }}</span>
+          </div>
+          
+          <button 
+            pButton
+            pRipple 
+            type="button"
+            class="p-button-plain p-button-text p-button-rounded mr-auto px-3 py-2 text-sm"
+            icon="fi fi-rr-time-past"
+            [label]="'buttons.history' | translate">
+          </button>
+        </div>
+      </ng-template>
+
+      <!-- content -->
+      <div class="content">
+
+      </div>
+
+    </p-panel>
+
+    <!-- files -->
+    <p-panel 
+      expandIcon="fi fi-rr-plus-small"
+      collapseIcon="fi fi-rr-minus-small"
+      [toggleable]="true"
+      [collapsed]="true">
+
+      <!-- header of files panel -->
+      <ng-template pTemplate="header">
+        <div class="header flex align-items-center justify-content-start">
+          <i class="fi fi-rr-inbox text-2xl text-green-400 bg-green-50 border-circle p-3"></i>
+          <h4>{{ 'titles.files' | translate }}</h4>
+        </div>
+      </ng-template>
+
+      <!-- content -->
+      <div class="content">
+        <ul class="file_items flex flex-column">
+          <li class="flex flex-column justify-content-between" *ngFor="let item of planDetails.files; trackBy: trackByFunction">
+            <div class="name flex align-items-center">
+              <h5>{{ 'global.file_name' | translate }} :</h5>
+              <span>{{ item.name }}</span>
+            </div>
+
+            <button
+              pButton
+              pRipple
+              type="button"
+              class="py-2 px-3 p-button-rounded p-button-text"
+              [label]="'buttons.download' | translate"
+              icon="fi fi-rr-cloud-download">
+            </button>
+          </li>
+        </ul>
+      </div>
+
+    </p-panel>
+
+  </aside>
+
+</section>
+
+<app-reject-plan
+  [displayDialog]="displayRejectPlanDialog"
+  (dialogState)="displayRejectPlanDialog = false">
+</app-reject-plan>
+
+<app-operations
+  [displayOperationDialog]="displayOperationDialog"
+  [operationType]="operationTypes.Researchers"
+  (operationDialogClosed)="displayOperationDialog = false">
+</app-operations>

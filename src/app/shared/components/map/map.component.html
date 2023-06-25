@@ -1,0 +1,48 @@
+<p-dialog
+  [lang]="translate.currentLang"
+  id="map"
+  [header]="'titles.map' | translate"
+  [(visible)]="displayMapDialog"
+  [breakpoints]="{'960px': '75vw'}" 
+  [style]="{width: '50vw'}"
+  [draggable]="false" 
+  [resizable]="false"
+	[dismissableMask]="true"
+	[rtl]="translate.currentLang == 'fa' ? 'rtl' : 'ltr'"
+	[modal]="true"
+	position="center"
+  (onHide)="closeDialog()">
+
+  <iframe 
+    src="https://balad.ir/embed?p=5chDMq8YOauisL" 
+    title="مشاهده «تدبیر پردازان سپهرداد مهند» روی نقشه بلد" 
+    height="300" 
+    frameborder="0" 
+    style="border:0;" 
+    allowfullscreen="" 
+    aria-hidden="false" 
+    tabindex="0">
+  </iframe>
+  
+  <ng-template pTemplate="footer">
+    <div class="w-full inline-flex justify-content-between">
+      <button 
+        pButton 
+        pRipple 
+        type="button" 
+        class="p-button-danger p-button-text p-button-rounded"
+        [label]="'buttons.back' | translate" 
+        (click)="displayMapDialog = false">
+      </button>
+
+      <button 
+        pButton 
+        pRipple 
+        type="button" 
+        class="p-button-success p-button-rounded"
+        [label]="'buttons.choose' | translate" >
+      </button>
+    </div>
+  </ng-template>
+
+</p-dialog>
