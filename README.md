@@ -2,6 +2,8 @@
 
 A responsive admin dashboard built with **Angular**, supporting English and Persian (Farsi) languages. This project demonstrates how to create a clean and customizable admin interface with modern web technologies.
 
+![App Screenshot](assets/images/screenshot.png)
+
 ## 🛠 **Features**
 
 -   **Multi-Language Support**: Seamlessly toggle between English and Persian (RTL support).
