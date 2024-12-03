@@ -1,3 +1,6 @@
+[![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://lunanezha.com/)
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](www.linkedin.com/in/luna-nezha/)
+
 # **Basic Admin Dashboard**
 
 A responsive admin dashboard built with **Angular**, supporting English and Persian (Farsi) languages. This project demonstrates how to create a clean and customizable admin interface with modern web technologies.
@@ -68,20 +71,21 @@ To run tests, run the following command
   npm run test
 ```
 
-## 👩 **About Me**
+## 🤝 **Contributing**
 
-Seasoned front-end developer with over eight years of experience specializing in pharmacy-focused solutions. Proven expertise in building scalable systems that enhance patient care and streamline pharmacy management. Delivering impactful software solutions with measurable outcomes, such as improving operational efficiency, reducing errors, and elevating user satisfaction.
+Contributions are always welcome!
 
-[![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://lunanezha.com/)
-[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](www.linkedin.com/in/luna-nezha/)
+If you’d like to improve this project:
+
+-   Fork the repository.
+-   Create your branch: git checkout -b feature/your-feature.
+-   Commit your changes: git commit -m "Add your message".
+-   Push to the branch: git push origin feature/your-feature.
+-   Open a Pull Request.
 
 ## 💡 **Support**
 
 For support, email mahdie.nezhadhosseini@gmail.com.
-
-## 🤝 **Contributing**
-
-Contributions are always welcome!
 
 ## 📝 **License**
 
