@@ -42,13 +42,13 @@ A responsive admin dashboard built with **Angular**, supporting English and Pers
 Clone the project
 
 ```bash
-  git clone https://link-to-project
+  git clone https://github.com/LunaNezha/basic-admin-dashboard-angular
 ```
 
 Go to the project directory
 
 ```bash
-  cd my-project
+  cd basic-admin-dashboard-angular
 ```
 
 Install dependencies
